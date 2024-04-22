@@ -77,6 +77,6 @@ defmodule RiotApiClient.Monitor do
   end
 
   defp via_tuple(id, region) do
-    {:via, Registry, {RiotApiClient.SummonersRegistry, id <> region}}
+    {:via, Registry, {RiotApiClient.SummonersRegistry, id <> "#" <> region}}
   end
 end
