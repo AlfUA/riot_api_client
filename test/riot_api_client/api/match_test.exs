@@ -55,7 +55,7 @@ defmodule RiotApiClient.Api.MatchTest do
     end
   end
 
-  describe "multi_match_info/2" do
+  describe "multi_info/2" do
     test "with valid response" do
       response = response_with("priv/test/matches-NA1_4053583588.json")
 
@@ -63,7 +63,7 @@ defmodule RiotApiClient.Api.MatchTest do
         {:ok, %Req.Response{status: 200, body: response}}
       end)
 
-      [result] = Match.multi_match_info(["NA1_4053583588"], "americas")
+      [result] = Match.multi_info(["NA1_4053583588"], "americas")
 
       assert response == result
     end

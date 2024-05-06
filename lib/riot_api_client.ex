@@ -34,7 +34,7 @@ defmodule RiotApiClient do
          {_, {:ok, region}} <- {:region, Geo.subregion_to_region(subregion)},
          {_, {:ok, match_ids}} <- {:match_ids, Match.get_recent(puuid, region)} do
       participants_id_to_name =
-        Match.multi_match_info(match_ids, region)
+        Match.multi_info(match_ids, region)
         |> Enum.flat_map(fn match -> match["info"]["participants"] end)
         |> Map.new(fn participant -> {participant["puuid"], participant["summonerName"]} end)
         |> Map.delete(puuid)
